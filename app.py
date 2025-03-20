@@ -1,12 +1,13 @@
 import os
 import streamlit as st
 
-# Force install dependencies
-os.system("pip install --no-cache-dir -r requirements.txt")
+# Force reinstall scikit-learn and numpy
+os.system("pip uninstall -y scikit-learn numpy")
+os.system("pip install --no-cache-dir scikit-learn==1.2.2 numpy==1.23.5 pandas joblib")
 
-import pickle
-import pandas as pd
 import numpy as np
+import pandas as pd
+import pickle
 from sklearn.preprocessing import StandardScaler  # Should now work!
 
 # Load the model
