@@ -1,4 +1,4 @@
-iimport os
+import os
 import streamlit as st
 
 # Force install dependencies
