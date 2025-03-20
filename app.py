@@ -1,13 +1,13 @@
-import os
+iimport os
 import streamlit as st
 
-# Force install missing dependencies
-os.system("pip install --no-cache-dir scikit-learn pandas numpy")
+# Force install dependencies
+os.system("pip install --no-cache-dir -r requirements.txt")
 
 import pickle
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler  # Now this should work!
+from sklearn.preprocessing import StandardScaler  # Should now work!
 
 # Load the model
 model_path = "asthma_model.pkl"
