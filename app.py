@@ -1,13 +1,22 @@
 import os
 import streamlit as st
-import pickle  # Use pickle instead of joblib
+
+# Force install missing dependencies
+os.system("pip install --no-cache-dir scikit-learn pandas numpy")
+
+import pickle
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler  # Now this should work!
 
-# Load the model using pickle
-with open("asthma_model.pkl", "rb") as file:
-    model = pickle.load(file)
+# Load the model
+model_path = "asthma_model.pkl"
+
+if os.path.exists(model_path):
+    with open(model_path, "rb") as file:
+        model = pickle.load(file)
+else:
+    st.error("❌ Model file not found! Please check if 'asthma_model.pkl' is in the project folder.")
 
 # Streamlit UI
 st.title("Asthma Disease Prediction")
